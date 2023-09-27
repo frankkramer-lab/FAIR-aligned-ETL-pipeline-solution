@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  processor-build:
+    image: maven
+    command: mvn clean install -f /tmp/processor
+    volumes:
+      - ./nifi-myCustomProcessor-processor:/tmp/processor
+  nifi-server:
+    depends_on:
+      processor-build:
+        condition: service_completed_successfully
+    container_name: nifi_container_persistent
+    image: mynifi
+    build:
+      context: ./
+      dockerfile: ./myNifi/Dockerfile
+    restart: on-failure
+    ports:
+      - "8443:8443"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=test12345678
+    volumes:
+      - ./data/content_repository:/opt/nifi/nifi-current/content_repository
+      - ./data/database_repository:/opt/nifi/nifi-current/database_repository
+      - ./data/flowfile_repository:/opt/nifi/nifi-current/flowfile_repository
+      - ./data/provenance_repository:/opt/nifi/nifi-current/provenance_repository
+      - ./data/state:/opt/nifi/nifi-current/state
+      - ./data/logs:/opt/nifi/nifi-current/logs
+      # next line uncommented only if ./data/conf properly initialized (see README.md)
+      #- ./data/conf:/opt/nifi/nifi-current/conf
+	# io folder that can be accessed in nifi with link in /home/nifi
+      - ./shared_folder:/home/nifi/
+    network_mode: bridge

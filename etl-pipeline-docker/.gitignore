@@ -1,0 +1,9 @@
+# ignore data from apache nifi (except config)
+/data/content_repository/*
+/data/database_repository/*
+/data/flowfile_repository/*
+/data/provenance_repository/*
+/data/state/*
+/data/logs/*
+# ignore built processor
+/target

@@ -1,0 +1,17 @@
+de/uni_a/nifi/processors/myCustomProcessor/Anamnese.class
+de/uni_a/nifi/processors/myCustomProcessor/ConditionFactory.class
+de/uni_a/nifi/processors/myCustomProcessor/QuestionnaireValues.class
+de/uni_a/nifi/processors/myCustomProcessor/MyProcessor$2.class
+de/uni_a/nifi/processors/myCustomProcessor/PatientFactory.class
+de/uni_a/nifi/processors/myCustomProcessor/Person.class
+de/uni_a/nifi/processors/myCustomProcessor/MyProcessor$1.class
+de/uni_a/nifi/processors/myCustomProcessor/PersonValues.class
+de/uni_a/nifi/processors/myCustomProcessor/MyProcessor.class
+de/uni_a/nifi/processors/myCustomProcessor/FHIRBundler.class
+de/uni_a/nifi/processors/myCustomProcessor/FHIRRequest.class
+de/uni_a/nifi/processors/myCustomProcessor/Question.class
+de/uni_a/nifi/processors/myCustomProcessor/QuestionnaireFactory.class
+de/uni_a/nifi/processors/myCustomProcessor/QuestionnaireResponseFactory.class
+de/uni_a/nifi/processors/myCustomProcessor/SmokerFactory.class
+de/uni_a/nifi/processors/myCustomProcessor/ConditionFactory$AnamneseType.class
+de/uni_a/nifi/processors/myCustomProcessor/RedcapResponse.class
